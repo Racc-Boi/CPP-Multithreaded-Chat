@@ -54,3 +54,19 @@ g++ -std=c++20 Server/Server.cpp -o server -lpthread
 cl /std:c++20 /EHsc Client\Client.cpp /link ws2_32.lib
 cl /std:c++20 /EHsc Server\Server.cpp /link ws2_32.lib
 ```
+
+## 📸 Screenshots
+
+### ✅ Multiple Platforms Connected
+
+![Debian Server, Debian Client, and Windows Client Communicating](Screenshots/Screenshot 1.png)
+
+> Demonstrates a Debian server with clients running on both Debian and Windows. Shows real-time messages and user join notifications.
+
+---
+
+### 👋 User Join/Leave Demonstration
+
+![User Join and Leave](Screenshots/Screenshot 2.png)
+
+> Shows three users connecting, receiving the welcome message, and a bye message from a client, and then a client disconnection notice.
