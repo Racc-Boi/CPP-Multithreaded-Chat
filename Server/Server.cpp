@@ -211,9 +211,9 @@ void Server::run( ) {
     std::cout << "Server listening on " << ip << ":" << port << std::endl;
 
     while ( true ) {
-        fd_set read_set;
+        fd_set read_set = {};
         FD_ZERO( &read_set );
-        int max_fd = 0;
+        socket_t max_fd = 0;
 
         {
             std::lock_guard<std::mutex> lock( clients_mutex_ );
@@ -226,7 +226,7 @@ void Server::run( ) {
         }
 
 		// Set the number of file descriptors to monitor
-        int nfds = max_fd + 1;
+        int nfds = static_cast<int>( max_fd ) + 1;
 
 		// Use select to wait for activity on the sockets
         int ready_count = select( nfds, &read_set, nullptr, nullptr, nullptr );
